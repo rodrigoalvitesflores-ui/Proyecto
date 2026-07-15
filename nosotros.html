@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros · Grupo Aragón</title>
+  <style>
+    /* ── Mismos estilos que index.html ── */
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap');
+    :root {
+      --navy:#0a0e1a; --navy-mid:#111827; --cyan:#4caf6a; --silver:#c0d4e8; --white:#f0f6ff;
+      --accent-glow:0 0 18px rgba(76,175,106,0.15);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--navy);color:var(--silver);font-family:'Exo 2',sans-serif;overflow-x:hidden}
+    a{color:var(--cyan);text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    /* Navbar */
+    #navbar{position:fixed;top:0;left:0;width:100%;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(10,14,26,0.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(76,175,106,0.08);transition:padding 0.3s}
+    .nav-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:1.25rem;color:var(--white);letter-spacing:0.06em}
+    .nav-logo span{color:var(--cyan)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--silver);transition:color 0.2s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--cyan);transition:width 0.25s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--cyan)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .hamburger span{width:26px;height:2px;background:var(--silver);border-radius:2px;transition:0.3s}
+    /* Hero de página */
+    .page-hero{padding:140px 0 60px;text-align:center;border-bottom:1px solid rgba(76,175,106,0.06)}
+    .page-hero h1{font-family:'Orbitron',monospace;font-size:2.6rem;color:var(--white);margin-bottom:12px}
+    .page-hero p{font-size:1rem;opacity:0.7;max-width:560px;margin:0 auto}
+    .page-section{padding:80px 0}
+    .section-tag{display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--cyan);margin-bottom:10px;border:1px solid rgba(76,175,106,0.25);padding:4px 12px;border-radius:40px}
+    h2.section-title{font-family:'Orbitron',monospace;font-size:2rem;color:var(--white);margin-bottom:20px}
+    /* Grid de valores */
+    .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
+    .value-card{background:var(--navy-mid);border:1px solid rgba(76,175,106,0.08);border-radius:16px;padding:30px 24px;transition:transform 0.3s,box-shadow 0.3s}
+    .value-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(76,175,106,0.1)}
+    .value-card h3{color:var(--cyan);font-family:'Orbitron',monospace;font-size:0.95rem;margin-bottom:10px}
+    .value-card p{font-size:0.85rem;line-height:1.6;opacity:0.8}
+    /* Timeline */
+    .timeline{position:relative;padding-left:40px;margin-top:40px}
+    .timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:rgba(76,175,106,0.2)}
+    .tl-item{position:relative;margin-bottom:36px}
+    .tl-item::before{content:'';position:absolute;left:-28px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px rgba(76,175,106,0.4)}
+    .tl-year{font-family:'Orbitron',monospace;font-size:0.85rem;color:var(--cyan);margin-bottom:4px}
+    .tl-text{font-size:0.88rem;opacity:0.8;line-height:1.5}
+    /* Equipo */
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin-top:40px}
+    .team-card{text-align:center;background:var(--navy-mid);border:1px solid rgba(76,175,106,0.08);border-radius:16px;padding:28px 16px;transition:transform 0.3s}
+    .team-card:hover{transform:translateY(-4px)}
+    .team-avatar{width:72px;height:72px;border-radius:50%;background:rgba(76,175,106,0.12);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:2rem}
+    .team-card h4{color:var(--white);font-size:0.95rem;margin-bottom:4px}
+    .team-card p{font-size:0.78rem;opacity:0.6}
+    /* Footer y chatbot (mismos que index) */
+    footer{text-align:center;padding:50px 20px;border-top:1px solid rgba(76,175,106,0.06)}
+    .footer-logo{font-family:'Orbitron',monospace;font-weight:900;font-size:1.2rem;color:var(--white);letter-spacing:0.06em;margin-bottom:6px}
+    .footer-tagline{font-size:0.82rem;opacity:0.5;margin-bottom:10px}
+    .footer-ruc{font-size:0.75rem;opacity:0.4}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s,transform 0.7s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:768px){
+      .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--navy-mid);flex-direction:column;padding:20px;gap:14px;border-bottom:1px solid rgba(76,175,106,0.1)}
+      .nav-links.open{display:flex}
+      .hamburger{display:flex}
+      .page-hero h1{font-size:1.8rem}
+      h2.section-title{font-size:1.4rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">GRUPO <span>ARAGÓN</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="web.html">Web</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-tag">Quiénes Somos</span>
+      <h1>Nuestra Historia</h1>
+      <p>Conoce más sobre Grupo Aragón, nuestra misión, visión y el equipo que hace posible cada solución tecnológica.</p>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN -->
+  <section class="page-section">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">Nuestra Esencia</span>
+        <h2 class="section-title">Misión & Visión</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <h3>🚀 Misión</h3>
+          <p>Proveer soluciones tecnológicas innovadoras, accesibles y de calidad que impulsen el crecimiento de hogares, emprendedores y empresas, garantizando confianza, seguridad y compromiso en cada servicio.</p>
+        </div>
+        <div class="value-card reveal">
+          <h3>🔭 Visión</h3>
+          <p>Ser la empresa líder en soluciones digitales y tecnológicas en el Perú para el 2030, reconocida por nuestra excelencia, innovación constante y cercanía con el cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALORES -->
+  <section class="page-section" style="padding-top:0">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">Nuestros Pilares</span>
+        <h2 class="section-title">Valores que nos Definen</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal"><h3>🔒 Confianza</h3><p>Construimos relaciones sólidas basadas en la transparencia, honestidad y cumplimiento de nuestros compromisos.</p></div>
+        <div class="value-card reveal"><h3>⚡ Innovación</h3><p>Nos mantenemos a la vanguardia tecnológica para ofrecer soluciones modernas y eficientes.</p></div>
+        <div class="value-card reveal"><h3>🤝 Compromiso</h3><p>Cada proyecto es una promesa. Trabajamos con dedicación para superar las expectativas de nuestros clientes.</p></div>
+        <div class="value-card reveal"><h3>📈 Calidad</h3><p>Estándares rigurosos en cada servicio, desde el primer contacto hasta la entrega final.</p></div>
+        <div class="value-card reveal"><h3>🌱 Crecimiento</h3><p>Impulsamos el desarrollo de nuestros clientes con soluciones que agregan valor real a su negocio.</p></div>
+        <div class="value-card reveal"><h3>💚 Responsabilidad</h3><p>Actuamos con ética, responsabilidad social y ambiental en cada paso que damos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRA HISTORIA -->
+  <section class="page-section" style="padding-top:0">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">Nuestra Trayectoria</span>
+        <h2 class="section-title">Línea de Tiempo</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal"><div class="tl-year">2021</div><div class="tl-text">Fundación de Grupo Aragón en Lima, Perú. Iniciamos con servicios de soporte técnico y desarrollo web.</div></div>
+        <div class="tl-item reveal"><div class="tl-year">2022</div><div class="tl-text">Expandimos nuestros servicios a instalación de redes, cámaras de seguridad y venta de componentes tecnológicos.</div></div>
+        <div class="tl-item reveal"><div class="tl-year">2023</div><div class="tl-text">Incorporamos servicios de consultoría informática, seguridad digital y diseño de sistemas personalizados.</div></div>
+        <div class="tl-item reveal"><div class="tl-year">2024</div><div class="tl-text">Lanzamos nuestra plataforma de chat 24/7 y automatizamos procesos de atención al cliente con inteligencia artificial.</div></div>
+        <div class="tl-item reveal"><div class="tl-year">2025</div><div class="tl-text">Consolidamos alianzas estratégicas y nos posicionamos como referente en soluciones tecnológicas en la región.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="page-section" style="padding-top:0">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag">El Equipo</span>
+        <h2 class="section-title">Detrás de Grupo Aragón</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">👨‍💻</div>
+          <h4>Fundador & CEO</h4>
+          <p>Visión estratégica y liderazgo tecnológico.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">👩‍💻</div>
+          <h4>Desarrollo Web</h4>
+          <p>Diseño y programación de soluciones digitales.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">🔧</div>
+          <h4>Soporte Técnico</h4>
+          <p>Especialistas en hardware y redes.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">📊</div>
+          <h4>Consultoría</h4>
+          <p>Asesoría en transformación digital.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">🔒</div>
+          <h4>Seguridad</h4>
+          <p>Protección de datos y sistemas.</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">🤖</div>
+          <h4>Innovación</h4>
+          <p>IA, automatización y nuevas tecnologías.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page-section" style="text-align:center;padding-top:0">
+    <div class="container reveal">
+      <h2 class="section-title">¿Listo para trabajar juntos?</h2>
+      <p style="margin-bottom:24px;opacity:0.7">Cuéntanos sobre tu proyecto y te asesoraremos sin compromiso.</p>
+      <a href="contacto.html" class="btn-primary" style="display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--navy);border-radius:8px;font-family:'Orbitron',monospace;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;">Contáctanos →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GRUPO ARAGÓN</div>
+    <div class="footer-tagline">Tecnología · Confianza · Compromiso</div>
+    <div class="footer-ruc">RUC: 20606494085 &nbsp;|&nbsp; Lima, Perú</div>
+  </footer>
+
+  <style>
+    .btn-primary{display:inline-block;padding:14px 36px;background:var(--cyan);color:var(--navy);border-radius:8px;font-family:'Orbitron',monospace;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;transition:background 0.2s,transform 0.2s}
+    .btn-primary:hover{background:#6fd98a;transform:translateY(-2px)}
+  </style>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')});
+    document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open'))});
+    // Reveal
+    const reveals=document.querySelectorAll('.reveal');
+    const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.1});
+    reveals.forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
