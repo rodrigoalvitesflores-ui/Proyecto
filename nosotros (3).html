@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros | Grupo Aragón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800;900&family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-black:#04070a;
+    --bg-deep:#0a141b;
+    --bg-mid:#16232b;
+    --bg-glow:#1c2f2c;
+    --panel:#101c22;
+    --panel-border:#22333055;
+    --teal-border:#3d6157;
+    --teal-soft:#2c4a43;
+    --teal-bright:#25bede;
+    --gold:#ecba61;
+    --fire:#e0570f;
+    --whatsapp:#3fae5c;
+    --text-heading:#f5f6f7;
+    --text-body:#a9b4b7;
+    --text-muted:#7c8a8d;
+    --nav-text:#d7d8d9;
+    --font-display:'Orbitron', sans-serif;
+    --font-nav:'Chakra Petch', sans-serif;
+    --font-body:'Rajdhani', sans-serif;
+  }
+
+  body.light{
+    --bg-black:#f5f7f6;
+    --bg-deep:#eef2f1;
+    --bg-mid:#e4ebe9;
+    --bg-glow:#dcebe6;
+    --panel:#ffffff;
+    --panel-border:#d8e2df;
+    --teal-border:#7ea393;
+    --teal-soft:#cfe3db;
+    --text-heading:#0e1a1f;
+    --text-body:#3a4a4d;
+    --text-muted:#6a7a7d;
+    --nav-text:#233030;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:var(--font-body);
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, var(--bg-glow), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 110% 30%, var(--teal-soft) 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 55%, var(--bg-deep) 100%);
+    color:var(--text-body);
+    min-height:100vh;
+    transition:background .4s ease, color .4s ease;
+    overflow-x:hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 48px;
+    background:color-mix(in srgb, var(--bg-black) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-border);
+  }
+
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+
+  .brand-mark{
+    width:38px; height:38px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(145deg, var(--teal-soft), var(--bg-black));
+    border:1px solid var(--teal-border);
+    clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    font-family:var(--font-display);
+    font-weight:800; font-size:13px; letter-spacing:0.5px;
+    color:var(--gold);
+  }
+
+  .brand-name{
+    font-family:var(--font-nav); font-weight:700; letter-spacing:2px;
+    font-size:17px; color:var(--text-heading); text-transform:uppercase;
+  }
+
+  nav.main-nav{ display:flex; align-items:center; gap:40px; }
+
+  .nav-links{ display:flex; gap:34px; list-style:none; }
+
+  .nav-links a{
+    font-family:var(--font-nav); font-weight:600; font-size:13px;
+    letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--nav-text); text-decoration:none;
+    position:relative; padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0;
+    width:0; height:2px; background:var(--teal-bright);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover{ color:var(--teal-bright); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-links a.active{ color:var(--teal-bright); }
+  .nav-links a.active::after{ width:100%; }
+
+  .header-actions{ display:flex; align-items:center; gap:22px; }
+
+  .mode-toggle{
+    display:flex; align-items:center; gap:8px;
+    font-family:var(--font-nav); font-size:12px; letter-spacing:1px;
+    color:var(--text-muted); text-transform:uppercase;
+    background:none; border:none; cursor:pointer;
+  }
+  .mode-dot{
+    width:16px; height:16px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px var(--gold);
+    transition:transform .3s ease;
+  }
+  body.light .mode-dot{ transform:translateX(2px); background:#7ea393; box-shadow:0 0 8px #7ea393; }
+
+  .btn-outline{
+    font-family:var(--font-nav); font-weight:600; font-size:12px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--text-heading);
+    border:1px solid var(--teal-border); background:transparent;
+    padding:11px 24px; border-radius:2px; cursor:pointer;
+    text-decoration:none;
+    transition:all .25s ease;
+  }
+  .btn-outline:hover{ background:var(--teal-soft); border-color:var(--teal-bright); }
+
+  /* ---------- HERO ---------- */
+  main{ position:relative; z-index:1; }
+
+  .hero{
+    text-align:center;
+    padding:90px 24px 60px;
+    display:flex; flex-direction:column; align-items:center;
+  }
+
+  .hero h1{
+    font-family:var(--font-display); font-weight:900;
+    font-size:clamp(38px, 6vw, 64px);
+    letter-spacing:3px;
+    color:var(--text-heading);
+    text-shadow:0 0 30px color-mix(in srgb, var(--teal-bright) 25%, transparent);
+  }
+
+  .eyebrow{
+    display:inline-block; margin-top:22px; margin-bottom:26px;
+    font-family:var(--font-nav); font-weight:600; font-size:11px;
+    letter-spacing:3px; text-transform:uppercase;
+    color:var(--teal-bright);
+    background:color-mix(in srgb, var(--teal-soft) 55%, transparent);
+    border:1px solid var(--teal-border);
+    padding:8px 18px; border-radius:20px;
+  }
+
+  .hero p{
+    max-width:720px;
+    font-size:17px; line-height:1.75;
+    color:var(--text-body);
+    font-weight:500;
+  }
+  .hero p + p{ margin-top:14px; }
+
+  /* ---------- CARDS ---------- */
+  .pillars{
+    max-width:1080px; margin:70px auto 100px;
+    padding:0 24px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+  }
+
+  .pillar-card{
+    background:color-mix(in srgb, var(--panel) 92%, transparent);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:38px 30px 34px;
+    text-align:center;
+    transition:transform .3s ease, border-color .3s ease;
+  }
+  .pillar-card:hover{ transform:translateY(-6px); border-color:var(--teal-border); }
+
+  .icon-wrap{
+    width:78px; height:78px; margin:0 auto 22px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%;
+  }
+  .icon-wrap.fire{ background:radial-gradient(circle, #e0570f33, transparent 70%); }
+  .icon-wrap.water{ background:radial-gradient(circle, #25bede33, transparent 70%); }
+  .icon-wrap.plant{ background:radial-gradient(circle, #4caf5033, transparent 70%); }
+
+  .pillar-card h3{
+    font-family:var(--font-nav); font-weight:700; font-size:21px;
+    letter-spacing:0.5px; color:var(--text-heading);
+    margin-bottom:12px;
+  }
+
+  .pillar-card p{
+    font-size:15.5px; line-height:1.65; color:var(--text-body);
+  }
+
+  /* ---------- STORY / VALUES STRIP ---------- */
+  .story{
+    max-width:1080px; margin:0 auto 100px; padding:0 24px;
+    display:grid; grid-template-columns:1fr 1fr; gap:60px;
+    align-items:center;
+  }
+  .story-text .kicker{
+    font-family:var(--font-nav); font-size:12px; letter-spacing:2px;
+    color:var(--teal-bright); text-transform:uppercase; font-weight:600;
+    margin-bottom:14px; display:block;
+  }
+  .story-text h2{
+    font-family:var(--font-display); font-size:clamp(26px,3vw,34px);
+    color:var(--text-heading); font-weight:800; margin-bottom:18px; letter-spacing:1px;
+  }
+  .story-text p{ font-size:16px; line-height:1.75; }
+  .story-text p + p{ margin-top:12px; }
+
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .stat-box{
+    background:color-mix(in srgb, var(--panel) 92%, transparent);
+    border:1px solid var(--panel-border);
+    border-radius:10px; padding:26px 20px; text-align:center;
+  }
+  .stat-box .num{
+    font-family:var(--font-display); font-size:32px; font-weight:800; color:var(--teal-bright);
+  }
+  .stat-box .label{
+    font-family:var(--font-nav); font-size:11px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--text-muted); margin-top:8px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--panel-border);
+    padding:30px 48px; text-align:center;
+    font-family:var(--font-nav); font-size:12px; letter-spacing:1px;
+    color:var(--text-muted);
+  }
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .whatsapp-fab{
+    position:fixed; bottom:28px; right:28px; z-index:60;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.35);
+    text-decoration:none;
+    transition:transform .25s ease;
+  }
+  .whatsapp-fab:hover{ transform:scale(1.08); }
+
+  @media (max-width: 900px){
+    header{ padding:14px 20px; }
+    .nav-links{ display:none; }
+    .story{ grid-template-columns:1fr; }
+    .pillars{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand">
+    <span class="brand-mark">AΩ</span>
+    <span class="brand-name">Grupo Aragón</span>
+  </a>
+
+  <nav class="main-nav">
+    <ul class="nav-links">
+      <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="web.html">Web</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+    <div class="header-actions">
+      <button class="mode-toggle" id="modeToggle">
+        <span class="mode-dot"></span> Modo claro
+      </button>
+      <a href="contacto.html" class="btn-outline">Contáctanos</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>QUIÉNES SOMOS</h1>
+    <span class="eyebrow">Tecnología · Confianza · Compromiso</span>
+    <p>En Grupo Aragón unimos la solidez de la experiencia con la agilidad de la tecnología moderna. Nuestro nombre, AΩ, representa el punto de partida y el resultado final: acompañamos a cada cliente desde la primera idea hasta la solución terminada.</p>
+    <p>Somos un equipo multidisciplinario dedicado a construir productos digitales sólidos, seguros y pensados para crecer junto a las empresas que confían en nosotros.</p>
+  </section>
+
+  <section class="pillars">
+    <article class="pillar-card">
+      <div class="icon-wrap fire">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C10 6 6 8 6 13a6 6 0 0012 0c0-2-1-3-2-4 0 2-1 3-2 3 1-3-1-6-2-10z" fill="#e0570f"/>
+          <path d="M12 22a4 4 0 004-4c0-2-1.5-3-2-5-1 2-3 3-3 5a3 3 0 001 3z" fill="#f7941d"/>
+        </svg>
+      </div>
+      <h3>Nuestra Misión</h3>
+      <p>Impulsar la transformación digital de nuestros clientes con soluciones tecnológicas confiables, seguras y hechas a la medida de cada proyecto.</p>
+    </article>
+
+    <article class="pillar-card">
+      <div class="icon-wrap water">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C9 7 5 10.5 5 15a7 7 0 0014 0c0-4.5-4-8-7-13z" fill="#25bede"/>
+          <ellipse cx="9.5" cy="14" rx="1.6" ry="2.4" fill="#a8e9f7" opacity="0.7"/>
+        </svg>
+      </div>
+      <h3>Nuestra Visión</h3>
+      <p>Ser la empresa de referencia en tecnología para empresas que buscan crecer con claridad, adaptándonos con la misma fluidez con la que se mueve el mercado.</p>
+    </article>
+
+    <article class="pillar-card">
+      <div class="icon-wrap plant">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22V12" stroke="#7a5230" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 12c0-4 3-6 7-6 0 4-3 7-7 6z" fill="#4caf50"/>
+          <path d="M12 14c0-3.5-2.5-5.5-6-5.5 0 3.5 2.5 6 6 5.5z" fill="#66bb6a"/>
+        </svg>
+      </div>
+      <h3>Nuestros Valores</h3>
+      <p>Integridad, compromiso y mejora continua guían cada decisión que tomamos, tanto dentro del equipo como en cada relación con nuestros clientes.</p>
+    </article>
+  </section>
+
+  <section class="story">
+    <div class="story-text">
+      <span class="kicker">Nuestra historia</span>
+      <h2>De la experiencia tradicional a la innovación digital</h2>
+      <p>Grupo Aragón nació de la unión entre el conocimiento acumulado de años de trabajo y la convicción de que la tecnología moderna puede potenciar cualquier negocio, sin importar su tamaño.</p>
+      <p>Hoy combinamos ese criterio con herramientas actuales de desarrollo web, automatización e infraestructura, para entregar resultados medibles a cada cliente que nos acompaña.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-box"><div class="num">+8</div><div class="label">Años de trayectoria</div></div>
+      <div class="stat-box"><div class="num">+120</div><div class="label">Proyectos entregados</div></div>
+      <div class="stat-box"><div class="num">98%</div><div class="label">Clientes satisfechos</div></div>
+      <div class="stat-box"><div class="num">24/7</div><div class="label">Soporte disponible</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Grupo Aragón. Todos los derechos reservados.
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.42-1.36a9.9 9.9 0 004.62 1.14h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.79 13.99c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.09.99-2.37.26-.28.57-.35.76-.35h.55c.18 0 .41-.03.64.49.24.55.8 1.9.87 2.04.07.14.11.3.02.49-.1.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.44.2.51.31.07.12.07.65-.17 1.33z"/>
+  </svg>
+</a>
+
+<script>
+  const toggle = document.getElementById('modeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+  });
+</script>
+
+</body>
+</html>
