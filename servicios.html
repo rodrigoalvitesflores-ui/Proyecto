@@ -74,10 +74,10 @@
   .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
 
   .brand-mark{
-  width:42px; height:42px;
-  object-fit:contain;
-  display:block;
-}
+    width:42px; height:42px;
+    object-fit:contain;
+    display:block;
+  }
 
   .brand-name{
     font-family:var(--font-nav); font-weight:700; letter-spacing:2px;
@@ -131,137 +131,9 @@
   }
   .btn-outline:hover{ background:var(--teal-soft); border-color:var(--teal-bright); }
 
-  /* ---------- HERO ---------- */
   main{ position:relative; z-index:1; }
 
-  .hero{
-    text-align:center;
-    padding:90px 24px 60px;
-    display:flex; flex-direction:column; align-items:center;
-  }
-
-  .hero h1{
-    font-family:var(--font-display); font-weight:900;
-    font-size:clamp(38px, 6vw, 64px);
-    letter-spacing:3px;
-    color:var(--text-heading);
-    text-shadow:0 0 30px color-mix(in srgb, var(--teal-bright) 25%, transparent);
-  }
-
-  .eyebrow{
-    display:inline-block; margin-top:22px; margin-bottom:26px;
-    font-family:var(--font-nav); font-weight:600; font-size:11px;
-    letter-spacing:3px; text-transform:uppercase;
-    color:var(--teal-bright);
-    background:color-mix(in srgb, var(--teal-soft) 55%, transparent);
-    border:1px solid var(--teal-border);
-    padding:8px 18px; border-radius:20px;
-  }
-
-  .hero p{
-    max-width:720px;
-    font-size:17px; line-height:1.75;
-    color:var(--text-body);
-    font-weight:500;
-  }
-  .hero p + p{ margin-top:14px; }
-
-  /* ---------- CARDS ---------- */
-  .pillars{
-    max-width:1080px; margin:70px auto 100px;
-    padding:0 24px;
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
-  }
-
-  .pillar-card{
-    background:color-mix(in srgb, var(--panel) 92%, transparent);
-    border:1px solid var(--panel-border);
-    border-radius:10px;
-    padding:38px 30px 34px;
-    text-align:center;
-    transition:transform .3s ease, border-color .3s ease;
-  }
-  .pillar-card:hover{ transform:translateY(-6px); border-color:var(--teal-border); }
-
-  .icon-wrap{
-    width:78px; height:78px; margin:0 auto 22px;
-    display:flex; align-items:center; justify-content:center;
-    border-radius:50%;
-  }
-  .icon-wrap.fire{ background:radial-gradient(circle, #e0570f33, transparent 70%); }
-  .icon-wrap.water{ background:radial-gradient(circle, #25bede33, transparent 70%); }
-  .icon-wrap.plant{ background:radial-gradient(circle, #4caf5033, transparent 70%); }
-
-  .pillar-card h3{
-    font-family:var(--font-nav); font-weight:700; font-size:21px;
-    letter-spacing:0.5px; color:var(--text-heading);
-    margin-bottom:12px;
-  }
-
-  .pillar-card p{
-    font-size:15.5px; line-height:1.65; color:var(--text-body);
-  }
-
-  /* ---------- STORY / VALUES STRIP ---------- */
-  .story{
-    max-width:1080px; margin:0 auto 100px; padding:0 24px;
-    display:grid; grid-template-columns:1fr 1fr; gap:60px;
-    align-items:center;
-  }
-  .story-text .kicker{
-    font-family:var(--font-nav); font-size:12px; letter-spacing:2px;
-    color:var(--teal-bright); text-transform:uppercase; font-weight:600;
-    margin-bottom:14px; display:block;
-  }
-  .story-text h2{
-    font-family:var(--font-display); font-size:clamp(26px,3vw,34px);
-    color:var(--text-heading); font-weight:800; margin-bottom:18px; letter-spacing:1px;
-  }
-  .story-text p{ font-size:16px; line-height:1.75; }
-  .story-text p + p{ margin-top:12px; }
-
-  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  .stat-box{
-    background:color-mix(in srgb, var(--panel) 92%, transparent);
-    border:1px solid var(--panel-border);
-    border-radius:10px; padding:26px 20px; text-align:center;
-  }
-  .stat-box .num{
-    font-family:var(--font-display); font-size:32px; font-weight:800; color:var(--teal-bright);
-  }
-  .stat-box .label{
-    font-family:var(--font-nav); font-size:11px; letter-spacing:1.5px;
-    text-transform:uppercase; color:var(--text-muted); margin-top:8px;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--panel-border);
-    padding:30px 48px; text-align:center;
-    font-family:var(--font-nav); font-size:12px; letter-spacing:1px;
-    color:var(--text-muted);
-  }
-
-  /* ---------- WHATSAPP FAB ---------- */
-  .whatsapp-fab{
-    position:fixed; bottom:28px; right:28px; z-index:60;
-    width:56px; height:56px; border-radius:50%;
-    background:var(--whatsapp);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 6px 18px rgba(0,0,0,0.35);
-    text-decoration:none;
-    transition:transform .25s ease;
-  }
-  .whatsapp-fab:hover{ transform:scale(1.08); }
-
-  @media (max-width: 900px){
-    header{ padding:14px 20px; }
-    .nav-links{ display:none; }
-    .story{ grid-template-columns:1fr; }
-    .pillars{ grid-template-columns:1fr; }
-  }
-
-  /* ---------- SERVICES ---------- */
+  /* ---------- SERVICES HERO ---------- */
   .services-hero{
     max-width:1200px; margin:0 auto; padding:70px 24px 10px;
     display:flex; align-items:flex-end; justify-content:space-between;
@@ -281,7 +153,6 @@
     position:relative; display:inline-block;
   }
 
-  /* subtle glitch/chromatic accent on the title, tech aesthetic */
   .services-hero h1::before,
   .services-hero h1::after{
     content:'Servicios Disponibles';
@@ -302,8 +173,36 @@
   }
   .btn-solid:hover{ filter:brightness(1.1); transform:translateY(-2px); }
 
+  /* ---------- INTRO COPY ---------- */
+  .services-intro{
+    max-width:820px; margin:22px auto 0; padding:0 24px;
+  }
+  .services-intro p{
+    font-size:16.5px; line-height:1.8; color:var(--text-body); font-weight:500;
+  }
+  .services-intro p + p{ margin-top:12px; }
+
+  /* ---------- STATS STRIP ---------- */
+  .stats-strip{
+    max-width:1200px; margin:46px auto 10px; padding:0 24px;
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+  }
+  .stat-box{
+    background:color-mix(in srgb, var(--panel) 92%, transparent);
+    border:1px solid var(--panel-border);
+    border-radius:10px; padding:26px 18px; text-align:center;
+  }
+  .stat-box .num{
+    font-family:var(--font-display); font-size:30px; font-weight:800; color:var(--teal-bright);
+  }
+  .stat-box .label{
+    font-family:var(--font-nav); font-size:11px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--text-muted); margin-top:8px;
+  }
+
+  /* ---------- SERVICES GRID ---------- */
   .services-grid{
-    max-width:1200px; margin:40px auto 100px; padding:0 24px;
+    max-width:1200px; margin:60px auto 40px; padding:0 24px;
     display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
   }
 
@@ -334,9 +233,95 @@
     font-size:15px; line-height:1.6; color:var(--text-body);
   }
 
+  /* ---------- PROCESS SECTION ---------- */
+  .process{
+    max-width:1200px; margin:40px auto 100px; padding:0 24px;
+  }
+  .process-head{ text-align:center; max-width:640px; margin:0 auto 46px; }
+  .process-head .kicker{
+    font-family:var(--font-nav); font-size:12px; letter-spacing:2px;
+    color:var(--teal-bright); text-transform:uppercase; font-weight:600;
+    margin-bottom:12px; display:block;
+  }
+  .process-head h2{
+    font-family:var(--font-display); font-size:clamp(24px,3vw,32px);
+    color:var(--text-heading); font-weight:800; letter-spacing:1px; margin-bottom:14px;
+  }
+  .process-head p{ font-size:15.5px; line-height:1.7; color:var(--text-body); }
+
+  .process-steps{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;
+  }
+  .process-step{
+    position:relative;
+    background:color-mix(in srgb, var(--panel) 92%, transparent);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:30px 22px 24px;
+    text-align:center;
+  }
+  .process-step .step-num{
+    font-family:var(--font-display); font-weight:900; font-size:15px;
+    color:var(--bg-black); background:var(--teal-bright);
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px;
+  }
+  .process-step h4{
+    font-family:var(--font-nav); font-weight:700; font-size:14.5px;
+    letter-spacing:0.5px; color:var(--text-heading); margin-bottom:10px;
+    text-transform:uppercase;
+  }
+  .process-step p{
+    font-size:14.5px; line-height:1.6; color:var(--text-body);
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    max-width:1200px; margin:0 auto 100px; padding:0 24px;
+  }
+  .cta-inner{
+    background:linear-gradient(135deg, color-mix(in srgb, var(--teal-soft) 65%, transparent), transparent);
+    border:1px solid var(--teal-border);
+    border-radius:14px;
+    padding:46px 40px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+  .cta-inner h3{
+    font-family:var(--font-display); font-size:clamp(20px,2.4vw,26px);
+    color:var(--text-heading); font-weight:800; letter-spacing:0.5px; margin-bottom:8px;
+  }
+  .cta-inner p{ font-size:15px; color:var(--text-body); max-width:480px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--panel-border);
+    padding:30px 48px; text-align:center;
+    font-family:var(--font-nav); font-size:12px; letter-spacing:1px;
+    color:var(--text-muted);
+  }
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .whatsapp-fab{
+    position:fixed; bottom:28px; right:28px; z-index:60;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.35);
+    text-decoration:none;
+    transition:transform .25s ease;
+  }
+  .whatsapp-fab:hover{ transform:scale(1.08); }
+
   @media (max-width: 900px){
+    header{ padding:14px 20px; }
+    .nav-links{ display:none; }
     .services-grid{ grid-template-columns:1fr; }
+    .stats-strip{ grid-template-columns:1fr 1fr; }
+    .process-steps{ grid-template-columns:1fr 1fr; }
     .services-hero h1::before, .services-hero h1::after{ display:none; }
+    .cta-inner{ flex-direction:column; align-items:flex-start; }
   }
 </style>
 </head>
@@ -344,7 +329,7 @@
 
 <header>
   <a href="index.html" class="brand">
-  <img src="logo.png" alt="Grupo Aragón" class="brand-mark">
+    <img src="logo.png" alt="Grupo Aragón" class="brand-mark">
     <span class="brand-name">Grupo Aragón</span>
   </a>
 
@@ -353,7 +338,6 @@
       <li><a href="nosotros.html">Nosotros</a></li>
       <li><a href="servicios.html" class="active">Servicios</a></li>
       <li><a href="web.html">Web</a></li>
-      
     </ul>
 
     <div class="header-actions">
@@ -372,6 +356,30 @@
       <h1>Servicios Disponibles</h1>
     </div>
     <a href="contacto.html" class="btn-solid">Solicitar Servicio</a>
+  </section>
+
+  <div class="services-intro">
+    <p>En Grupo Aragón combinamos experiencia técnica y atención personalizada para resolver los retos tecnológicos de hogares, negocios y empresas. Desde el soporte del día a día hasta proyectos de infraestructura completos, nuestro equipo diseña soluciones a la medida de cada cliente.</p>
+    <p>Trabajamos con equipos propios y aliados certificados, priorizando la seguridad, la estabilidad y el rendimiento en cada instalación o desarrollo que entregamos.</p>
+  </div>
+
+  <section class="stats-strip">
+    <div class="stat-box">
+      <div class="num">+9</div>
+      <div class="label">Servicios especializados</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">+500</div>
+      <div class="label">Proyectos entregados</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">24/7</div>
+      <div class="label">Soporte disponible</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">100%</div>
+      <div class="label">Garantía de servicio</div>
+    </div>
   </section>
 
   <section class="services-grid">
@@ -466,6 +474,46 @@
       <p>Recuperamos información crítica perdida por fallos de hardware, software o accidentes en tus equipos.</p>
     </article>
 
+  </section>
+
+  <section class="process">
+    <div class="process-head">
+      <span class="kicker">Cómo trabajamos</span>
+      <h2>Nuestro Proceso</h2>
+      <p>Un flujo simple y transparente para llevar tu proyecto o solicitud desde el diagnóstico hasta la entrega final.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Diagnóstico</h4>
+        <p>Evaluamos tu equipo, red o necesidad para entender el problema real y sus causas.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Propuesta</h4>
+        <p>Te presentamos una solución clara con alcance, tiempos y costo definido antes de empezar.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Ejecución</h4>
+        <p>Implementamos el servicio con equipos y protocolos certificados, minimizando interrupciones.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Seguimiento</h4>
+        <p>Acompañamos el resultado con soporte posterior y garantía sobre el trabajo realizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-inner">
+      <div>
+        <h3>¿Listo para resolver tu problema tecnológico?</h3>
+        <p>Cuéntanos qué necesitas y te contactamos con una propuesta a la medida en menos de 24 horas.</p>
+      </div>
+      <a href="contacto.html" class="btn-solid">Solicitar Servicio</a>
+    </div>
   </section>
 </main>
 
